@@ -1,0 +1,87 @@
+.app-shell {
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+}
+
+.skip-link {
+  position: absolute;
+  top: -48px;
+  left: 1rem;
+  z-index: 1000;
+  background: var(--brand-900);
+  color: var(--text-on-dark);
+  padding: 0.75rem 1rem;
+  border-radius: 0.5rem;
+  text-decoration: none;
+  transition: top 180ms ease-in-out;
+}
+
+.skip-link:focus-visible {
+  top: 1rem;
+}
+
+.cart-callout {
+  margin: 0 1rem 2.25rem;
+  padding: 1.2rem;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-soft);
+  background: var(--bg-surface);
+  display: grid;
+  gap: 0.7rem;
+}
+
+.cart-callout p {
+  color: var(--text-soft);
+}
+
+.cart-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.8rem;
+}
+
+.cart-list li {
+  border: 1px solid var(--border-soft);
+  border-radius: 0.65rem;
+  padding: 0.75rem;
+  display: grid;
+  gap: 0.6rem;
+}
+
+.cart-item-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.cart-item-actions button,
+.cart-summary button {
+  border: 1px solid var(--border-soft);
+  border-radius: 999px;
+  background: #fff;
+  color: var(--text-main);
+  font-weight: 600;
+  padding: 0.35rem 0.7rem;
+  cursor: pointer;
+}
+
+.cart-summary {
+  border-top: 1px solid var(--border-soft);
+  padding-top: 0.75rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.7rem;
+}
+
+@media (min-width: 48rem) {
+  .cart-callout {
+    margin: 0 1.5rem 3rem;
+    max-width: 52rem;
+  }
+}

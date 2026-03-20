@@ -1,0 +1,24 @@
+.best-sellers-section {
+  padding: 0 1rem 2.5rem;
+}
+
+.highlights-grid {
+  display: grid;
+  gap: 1rem;
+}
+
+@supports not (display: grid) {
+  .highlights-grid > * + * {
+    margin-top: 1rem;
+  }
+}
+
+@media (min-width: 48rem) {
+  .best-sellers-section {
+    padding: 0 1.5rem 3rem;
+  }
+
+  .highlights-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}

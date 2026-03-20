@@ -1,0 +1,35 @@
+.products-section {
+  padding: 2rem 1rem;
+}
+
+.anchor-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  height: 1px;
+  margin-bottom: 0.5rem;
+}
+
+.anchor-grid span {
+  display: block;
+}
+
+.products-grid {
+  display: grid;
+  gap: 1rem;
+}
+
+@supports not (display: grid) {
+  .products-grid > * + * {
+    margin-top: 1rem;
+  }
+}
+
+@media (min-width: 48rem) {
+  .products-section {
+    padding: 3rem 1.5rem;
+  }
+
+  .products-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}

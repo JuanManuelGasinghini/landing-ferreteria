@@ -1,0 +1,49 @@
+.highlight-card {
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-soft);
+  overflow: hidden;
+  background: var(--bg-surface);
+}
+
+.highlight-card__media {
+  margin: 0;
+  aspect-ratio: 4/3;
+  background: linear-gradient(120deg, #e4eef9, #f8fbff);
+}
+
+.highlight-card__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.image-placeholder {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  place-items: center;
+  font-weight: 700;
+  color: var(--text-soft);
+  font-size: 0.88rem;
+}
+
+.highlight-card__content {
+  padding: 0.95rem;
+  display: grid;
+  gap: 0.5rem;
+}
+
+.highlight-card__badge {
+  width: fit-content;
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  border: 1px solid var(--border-soft);
+  border-radius: 999px;
+  padding: 0.25rem 0.55rem;
+  color: var(--brand-700);
+}
+
+.highlight-card p {
+  color: var(--text-soft);
+}
