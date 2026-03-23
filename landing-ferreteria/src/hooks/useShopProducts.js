@@ -7,7 +7,7 @@ import { bestSellerProducts, featuredProducts } from '../data/products'
 export function useShopProducts() {
   const [isLoading, setIsLoading] = useState(true)
   const [products, setProducts] = useState(featuredProducts)
-  const [hasRemoteData, setHasRemoteData] = useState(false)
+  const [remoteState, setRemoteState] = useState('fallback') // 'not_configured' | 'loaded' | 'empty' | 'error'
 
   useEffect(() => {
     let cancelled = false
@@ -17,7 +17,7 @@ export function useShopProducts() {
       try {
         if (!isFirebaseConfigured) {
           setProducts(featuredProducts)
-          setHasRemoteData(false)
+          setRemoteState('not_configured')
           return
         }
 
@@ -26,12 +26,12 @@ export function useShopProducts() {
 
         if (!cancelled) {
           setProducts(mapped)
-          setHasRemoteData(remoteProducts.length > 0)
+          setRemoteState(remoteProducts.length > 0 ? 'loaded' : 'empty')
         }
       } catch {
         if (!cancelled) {
           setProducts(featuredProducts)
-          setHasRemoteData(false)
+          setRemoteState('error')
         }
       } finally {
         if (!cancelled) setIsLoading(false)
@@ -45,7 +45,7 @@ export function useShopProducts() {
   }, [])
 
   const bestSeller = useMemo(() => {
-    if (hasRemoteData) {
+    if (remoteState === 'loaded') {
       return [...products]
         .sort((a, b) => (b.stock ?? 0) - (a.stock ?? 0))
         .slice(0, 3)
@@ -59,9 +59,13 @@ export function useShopProducts() {
         }))
     }
 
-    // Fallback local “best sellers” while Firebase is not configured.
-    return bestSellerProducts
-  }, [hasRemoteData, products])
+    // Fallback local only when Firebase is not configured or fetch fails.
+    if (remoteState === 'not_configured' || remoteState === 'error') {
+      return bestSellerProducts
+    }
+
+    return []
+  }, [remoteState, products])
 
   return { isLoading, products, bestSeller }
 }
