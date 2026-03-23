@@ -4,22 +4,22 @@ function HeroSection() {
   return (
     <section className="hero-section" aria-labelledby="hero-title">
       <div className="hero-section__overlay">
-        <p className="hero-section__eyebrow">Sistema sanitario y ferreteria de precision</p>
+        <p className="hero-section__eyebrow">Catálogo para instaladores</p>
         <h1 id="hero-title">
-          Tu obra no necesita suerte:
+          Lo que tu instalación necesita
           <br />
-          necesita piezas que respondan a la primera.
+          sin vueltas
         </h1>
         <p className="hero-section__copy">
-          Disenamos un catalogo que piensa como instalador: decisiones rapidas, stock visible y
-          soluciones que evitan rehacer trabajo.
+          Elegí por medida y compatibilidad: precio claro, stock visible y una compra lista para
+          avanzar a tiempo.
         </p>
         <div className="hero-section__cta-group">
           <a href="#productos" className="button-primary">
-            Explorar productos
+            Ver catálogo
           </a>
           <a href="#mas-vendidos" className="button-secondary">
-            Ver mas vendidos
+            Ir a destacados
           </a>
         </div>
       </div>

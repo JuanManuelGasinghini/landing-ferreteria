@@ -35,9 +35,9 @@ src/
 
 ## Importante sobre assets
 
-La seccion Hero referencia la imagen:
+La seccion Hero referencia la imagen del fondo:
 
-- `/src/assets/hero-fondo.webp`
+- `/src/assets/Fondo.png`
 
 Si todavia no existe, la interfaz mantiene un degradado de fallback para no romper el diseño.
 
@@ -50,7 +50,7 @@ Los productos usan placeholders en `/placeholders/...` para luego reemplazar por
 - `npm run preview` previsualiza build.
 - `npm run lint` corre analisis estatico.
 
-## Integracion Firebase (siguiente paso)
+## Integracion Firebase (carrito + productos)
 
 La capa base ya esta creada en `src/services/firebase/` y el carrito global se encuentra en
 `src/context/CartContext.jsx`.
@@ -62,6 +62,21 @@ La capa base ya esta creada en `src/services/firebase/` y el carrito global se e
 3. En Vercel, cargar las mismas variables en Project Settings -> Environment Variables.
 
 Nunca commitear `.env.local` ni credenciales reales.
+
+### Productos en Firestore
+La landing consume una coleccion `products` desde Firestore y muestra:
+- `Nuestros productos`: agrupados por categoria (`canerias`, `piezas`, `accesorios`, `griferias`).
+- `Mas pedidos`: seleccion calculada en el frontend (por `stock` mientras no exista un ranking real).
+
+Para evitar problemas con consultas/serializacion, los nombres de campos en Firestore se guardan sin tildes (ASCII).
+
+### Importar datos desde CSV
+Existe un script para cargar tu CSV a Firestore:
+
+- `node importProductsToFirestore.mjs --csv "/ruta/a/basededatos.csv"`
+
+El script requiere credenciales Admin. Recomendacion:
+- configurar `GOOGLE_APPLICATION_CREDENTIALS` con el path a tu service account JSON
 
 ### Flujo actual del carrito
 

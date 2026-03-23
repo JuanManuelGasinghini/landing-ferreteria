@@ -1,8 +1,8 @@
 export const shopCategories = [
-  { id: 'canerias', label: 'Canerias' },
+  { id: 'canerias', label: 'Cañerias' },
   { id: 'piezas', label: 'Piezas' },
   { id: 'accesorios', label: 'Accesorios' },
-  { id: 'griferias', label: 'Griferias' },
+  { id: 'griferias', label: 'Griferías' },
 ]
 
 export const featuredProducts = [
@@ -12,6 +12,7 @@ export const featuredProducts = [
     description:
       'Conecta agua fria y caliente con piezas calibradas para instalaciones exigentes.',
     price: '$89.900',
+    categoryId: 'accesorios',
     category: 'Accesorios',
     imageAlt: 'Render del kit inicial para bano inteligente',
     imageUrl: '',
@@ -22,7 +23,8 @@ export const featuredProducts = [
     description:
       'Reduce perdidas de presion y mejora el flujo en trayectos largos sin reformas complejas.',
     price: '$44.500',
-    category: 'Canerias',
+    categoryId: 'canerias',
+    category: 'Cañerias',
     imageAlt: 'Caneria multicapa premium enrollada',
     imageUrl: '',
   },
@@ -32,6 +34,7 @@ export const featuredProducts = [
     description:
       'Respuesta suave y cierre hermetico para proteger cada circuito de la vivienda.',
     price: '$21.300',
+    categoryId: 'piezas',
     category: 'Piezas',
     imageAlt: 'Valvula cromada de corte de precision',
     imageUrl: '',
@@ -42,7 +45,8 @@ export const featuredProducts = [
     description:
       'Control de temperatura estable con un diseno minimalista para cocinas y banos actuales.',
     price: '$64.200',
-    category: 'Griferias',
+    categoryId: 'griferias',
+    category: 'Griferías',
     imageAlt: 'Monocomando de alto rendimiento en acabado negro',
     imageUrl: '',
   },

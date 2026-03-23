@@ -6,7 +6,7 @@ function Header({ categories, cartCount }) {
     <header className="site-header">
       <div className="site-header__brand">
         <a href="#top" aria-label="Ir al inicio de Casa Fluxo">
-          Casa Fluxo
+          Casa de Sanitarios y ferretería
         </a>
       </div>
 

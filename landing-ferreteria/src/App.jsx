@@ -3,13 +3,15 @@ import Footer from './components/layout/Footer'
 import HeroSection from './components/sections/HeroSection'
 import ProductsSection from './components/sections/ProductsSection'
 import BestSellersSection from './components/sections/BestSellersSection'
-import { bestSellerProducts, featuredProducts, shopCategories } from './data/products'
+import { shopCategories } from './data/products'
 import { useCart } from './hooks/useCart'
+import { useShopProducts } from './hooks/useShopProducts'
 import './App.css'
 
 function App() {
   const { items, cartCount, cartTotalFormatted, addItem, removeItem, updateQuantity, clearCart } =
     useCart()
+  const { isLoading, products, bestSeller } = useShopProducts()
 
   return (
     <div className="app-shell" id="top">
@@ -19,8 +21,8 @@ function App() {
       <Header categories={shopCategories} cartCount={cartCount} />
       <main id="main-content">
         <HeroSection />
-        <ProductsSection products={featuredProducts} onAddToCart={addItem} />
-        <BestSellersSection products={bestSellerProducts} />
+        <ProductsSection products={products} onAddToCart={addItem} categories={shopCategories} isLoading={isLoading} />
+        <BestSellersSection products={bestSeller} isLoading={isLoading} />
         <section className="cart-callout" id="carrito" aria-labelledby="carrito-title">
           <h2 id="carrito-title">Tu carrito sincronizado</h2>
           <p>Persistencia local + Firestore para que tu seleccion no se pierda al recargar.</p>
